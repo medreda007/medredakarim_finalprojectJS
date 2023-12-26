@@ -194,20 +194,25 @@ please enter log-in or sign-up`)
 
 
 
-// !!!!!!!! part 2
+        // !!!!!!!! part 2
 
 
     } else if (lobby == "log-in") {
         let answer
         let enterEmail = prompt(`welcome back
         enter your email`)
+        let userMoney
         for (let index = 0; index < bankDataBase.length; index++) {
             const element = bankDataBase[index];
+            userMoney = element.money
             if (enterEmail == element.email) {
                 alert(`welcome back ${element.name}`)
             } else {
                 answer = false
             }
+        }
+        if (answer == false) {
+            continue
         }
         let enterPassword = prompt(`enter your password please`)
         for (let index = 0; index < bankDataBase.length; index++) {
@@ -220,6 +225,13 @@ please enter log-in or sign-up`)
         }
         if (answer == false) {
             continue
+        }
+        let connect = []
+        connect++
+        for (let index = 0; index < connect.length; index++) {
+            const element = connect[index];
+            console.log(element);
+            console.log(connect);
         }
         let userChoice = prompt(`wanna somthing else
         options : log-out / change password `)
@@ -249,13 +261,53 @@ please enter log-in or sign-up`)
                         newPassword = passwordSpaceTrim
                         break
                     }
-                    element.password=newPassword
+                    element.password = newPassword
                     console.log(element);
                 }
             }
-        }else if (userChoice == "log-out") {
+        } else if (userChoice == "log-out") {
             continue
         }
+        alert(`this is your money ${userMoney}`)
+        let history = []
+        while (true) {
+            let withdraw = parseInt(prompt(`how much do u want to withdraw`))
+            userMoney -= withdraw
+            console.log(userMoney);
+            history.push(`the user withdrawn ${withdraw}`)
+            alert(`you have ${userMoney} right now`);
+            if (withdraw > userMoney) {
+                alert(`you can't withdraw this amount`)
+                continue
+            }
+            break
+        }
+        while (true) {
+            let deposit = parseInt(prompt(`how much do u want to deposit 
+        (you cant deposit more than 1000)`))
+            userMoney += deposit
+            console.log(userMoney);
+            history.push(`the user added ${deposit} to his account`)
+            alert(`you have ${userMoney} right now`);
+            if (deposit > 1000) {
+                alert(`you can't deposit this amount`)
+                continue
+            }
+            break
+        }
+        while (true) {
+            let loan = parseInt(prompt(`how much do you want 
+            (you can take up to 20% of your money)`))
+            userMoney += loan
+            console.log(userMoney);
+            history.push(`the user toke a loan of ${loan} `)
+            if (loan < userMoney * 0.2) {
+                alert(`you can't get this amount`)
+                continue
+            }
+            break
+        }
+        console.log(history);
     }
     break
 }

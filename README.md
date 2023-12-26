@@ -45,7 +45,7 @@
             - Require at least one special character from the set: ["@", "#", "-", "+", "*", "/"].
             - Require at least 7 characters to confirm the password.
 
-            # Password_confirmed:
+            # Password_confirmed:   
             - The user must re-enter their exact password; otherwise, they are blocked.
 
         * If the user chooses to log in, here are the details they must enter:
