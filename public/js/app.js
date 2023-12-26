@@ -39,28 +39,67 @@ if (lobby == "sign-up") {
     // // *name end
 
     // & email start
-    let userEmail = prompt(`enter your email`)
-    let modifiedEmail = userEmail.trim()
-    let spaceChecker = modifiedEmail.indexOf(" ") >= 0
-    while (spaceChecker == true) {
-        userEmail = prompt(`the email shouldn't have space`)
-        modifiedEmail = userEmail.trim()
-        spaceChecker = modifiedEmail.indexOf(" ") >= 0
-    }
-    let emailToLowerCase = modifiedEmail.toLocaleLowerCase()
-    while (emailToLowerCase.length <= 10) {
-        userEmail = prompt(`the emil should have more 10 charcters`)
-        modifiedEmail = userEmail.trim()
-        emailToLowerCase = modifiedEmail.toLocaleLowerCase()
-    }
-    console.log(emailToLowerCase);
-    let emailspecialcharacter = Boolean(emailToLowerCase.match(/@@/))
-    console.log(emailspecialcharacter);
+    // // let userEmail = prompt(`enter your email`)
+    // // let modifiedEmail = userEmail.trim()
+    // // let spaceChecker = modifiedEmail.indexOf(" ") >= 0
+    // // while (spaceChecker == true) {
+    // //     userEmail = prompt(`the email shouldn't have space`)
+    // //     modifiedEmail = userEmail.trim()
+    // //     spaceChecker = modifiedEmail.indexOf(" ") >= 0
+    // // }
+    // // let emailToLowerCase = modifiedEmail.toLocaleLowerCase()
+    // // while (emailToLowerCase.length <= 10) {
+    // //     userEmail = prompt(`the emil should have more 10 charcters`)
+    // //     modifiedEmail = userEmail.trim()
+    // //     emailToLowerCase = modifiedEmail.toLocaleLowerCase()
+    // // }
+    // // console.log(emailToLowerCase);
+    // // let emailspecialcharacter = Boolean(emailToLowerCase.match(/@@/))
+    // // console.log(emailspecialcharacter);
 
-    while (emailspecialcharacter==true) {
-        userEmail = prompt(`the email should have only one @`)
-    }
+    // while (emailspecialcharacter==true) {
+    //     userEmail = prompt(`the email should have only one @`)
+    // }
+    // while (true) {
+    //     let userEmail = prompt(`enter your email`)
+    //     let modifiedEmail = userEmail.trim()
+    //     let emailSpaceCheck = modifiedEmail.indexOf(" ") >= 0
+    //     if (spaceChecker == true) {
+    //         alert("the email shouldn't have space between characters")
+    //     continue}
+    //     let emailToLowerCase = modifiedEmail.toLocaleLowerCase()
+    //     if (emailToLowerCase.length <= 10) {
+    //         alert("the email should have more than 10 charcters")
+    //     continue}
+    //     let emailspecialcharacter = Boolean(emailToLowerCase.match(/@@/))
+    //     if (emailspecialcharacter==true) {
+    //         alert("the email should have only one @")
+    //     continue}
+    //     // if (condition) {
+    //         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! add the last condition here when u create the bank database to check if the email is used by another user
+    //     // }
+    //     console.log(emailToLowerCase);
+    //     break
+    // }
 
+    // & email end
+
+    // todo age start
+    while (true) {
+        let userAge = prompt(`enter your age`)
+        let ageSpaceCheck = userAge.trim()
+        let ageSpaceCheck2 = ageSpaceCheck.split(" ").join("")
+        let numberCheck = Boolean(userAge.match(/[A-Za-z]/))
+        if (numberCheck == true) {
+            alert("enter your age with numbers")
+        continue}
+        if (ageSpaceCheck2.length>2) {
+            alert("your age should have 2 numbers")
+        continue}
+        console.log(ageSpaceCheck2);
+        break
+    }
+    
 
 
 
