@@ -54,17 +54,17 @@ if (lobby == "sign-up") {
     // //     emailToLowerCase = modifiedEmail.toLocaleLowerCase()
     // // }
     // // console.log(emailToLowerCase);
-    // // let emailspecialcharacter = Boolean(emailToLowerCase.match(/@@/))
-    // // console.log(emailspecialcharacter);
+    // // // let emailspecialcharacter = Boolean(emailToLowerCase.match(/@@/))
+    // // // console.log(emailspecialcharacter);
 
-    // while (emailspecialcharacter==true) {
-    //     userEmail = prompt(`the email should have only one @`)
-    // }
+    // // while (emailspecialcharacter==true) {
+    // //     userEmail = prompt(`the email should have only one @`)
+    // // }
     // while (true) {
     //     let userEmail = prompt(`enter your email`)
     //     let modifiedEmail = userEmail.trim()
     //     let emailSpaceCheck = modifiedEmail.indexOf(" ") >= 0
-    //     if (spaceChecker == true) {
+    //     if (emailSpaceCheck == true) {
     //         alert("the email shouldn't have space between characters")
     //     continue}
     //     let emailToLowerCase = modifiedEmail.toLocaleLowerCase()
@@ -85,20 +85,41 @@ if (lobby == "sign-up") {
     // & email end
 
     // todo age start
+    // while (true) {
+    //     let userAge = prompt(`enter your age`)
+    //     let ageSpaceTrim = userAge.trim()
+    //     let ageSpaceTrim2 = ageSpaceCheck.split(" ").join("")
+    //     let numberCheck = Boolean(userAge.match(/[A-Za-z]/))
+    //     if (numberCheck == true) {
+    //         alert("enter your age with numbers")
+    //     continue}
+    //     if (ageSpaceCheck2.length>2) {
+    //         alert("your age should have 2 numbers")
+    //     continue}
+    //     console.log(ageSpaceCheck2);
+    //     break
+    // }
+    // // todo age end
+    
+    // ~~ password start
     while (true) {
-        let userAge = prompt(`enter your age`)
-        let ageSpaceCheck = userAge.trim()
-        let ageSpaceCheck2 = ageSpaceCheck.split(" ").join("")
-        let numberCheck = Boolean(userAge.match(/[A-Za-z]/))
-        if (numberCheck == true) {
-            alert("enter your age with numbers")
+        let userPassword = prompt(`enter a password`)
+        let passwordSpaceTrim = userPassword.trim() 
+        let passwordSpaceCheck = passwordSpaceTrim.indexOf(" ") >= 0
+        if (passwordSpaceCheck == true) {
+            alert("the password shouldn't have space between characters")
         continue}
-        if (ageSpaceCheck2.length>2) {
-            alert("your age should have 2 numbers")
+        let passwordSpecialCharacterCheck = Boolean(passwordSpaceTrim.match(/[@ # + _ $ ^ * /]/))
+        if (passwordSpecialCharacterCheck == false) {
+            alert("you should add a special charactere to the password")
         continue}
-        console.log(ageSpaceCheck2);
+        if (passwordSpaceTrim.length<7) {
+            alert("the password should have at least 7 characters")
+        continue}
         break
     }
+    // ~~ password end
+
     
 
 
