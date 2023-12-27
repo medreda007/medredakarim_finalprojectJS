@@ -202,8 +202,10 @@ please enter log-in or sign-up`)
         let enterEmail = prompt(`welcome back
         enter your email`)
         let userMoney
+        let currentUser
         for (let index = 0; index < bankDataBase.length; index++) {
             const element = bankDataBase[index];
+            currentUser=element
             userMoney = element.money
             if (enterEmail == element.email) {
                 alert(`welcome back ${element.name}`)
@@ -226,13 +228,12 @@ please enter log-in or sign-up`)
         if (answer == false) {
             continue
         }
-        let connect = []
-        connect++
-        for (let index = 0; index < connect.length; index++) {
-            const element = connect[index];
-            console.log(element);
-            console.log(connect);
-        }
+        
+        // for (let index = 0; index < connect.length; index++) {
+        //     const element = connect[index];
+        //     console.log(element);
+        //     console.log(connect);
+        // }
         let userChoice = prompt(`wanna somthing else
         options : log-out / change password `)
         if (userChoice == "change password") {
@@ -284,7 +285,7 @@ please enter log-in or sign-up`)
         }
         while (true) {
             let deposit = parseInt(prompt(`how much do u want to deposit 
-        (you cant deposit more than 1000)`))
+            (you cant deposit more than 1000)`))
             userMoney += deposit
             console.log(userMoney);
             history.push(`the user added ${deposit} to his account`)
@@ -295,19 +296,32 @@ please enter log-in or sign-up`)
             }
             break
         }
+        let credit     
         while (true) {
             let loan = parseInt(prompt(`how much do you want 
             (you can take up to 20% of your money)`))
             userMoney += loan
             console.log(userMoney);
             history.push(`the user toke a loan of ${loan} `)
-            if (loan < userMoney * 0.2) {
+            let intert = userMoney*0.2
+            if (loan > intert) {
                 alert(`you can't get this amount`)
                 continue
             }
+            credit = loan
             break
         }
+        
+        let connect
+        connect = credit
+        while (connect > 0) {
+            userMoney -= 0.1*connect
+            connect -= credit
+        }
+        currentUser.money=userMoney
+        console.log(currentUser);
         console.log(history);
+        continue
     }
     break
 }
